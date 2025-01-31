@@ -1,59 +1,17 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Arial', sans-serif;
-    background: #f7e1e1; /* Fondo rosado claro */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+// Crear flores animadas
+const numFlowers = 20; // Número de flores
+const container = document.body;
 
-.container {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    max-width: 600px;
-    width: 100%;
-}
-
-h1 {
-    font-size: 2.5rem;
-    color: #d14a7a;
-    margin-bottom: 20px;
-}
-
-h2 {
-    font-size: 1.8rem;
-    color: #d14a7a;
-    margin-top: 20px;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-ul li {
-    font-size: 1.2rem;
-    margin: 10px 0;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-table th, table td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: left;
-}
-
-table th {
-    background-color: #f4f4f4;
-    font-weight: bold;
+for (let i = 0; i < numFlowers; i++) {
+    const flower = document.createElement('div');
+    flower.innerHTML = '🌸';
+    flower.classList.add('flower');
+    
+    // Posiciones y tamaños aleatorios
+    flower.style.top = `${Math.random() * 100}%`;
+    flower.style.left = `${Math.random() * 100}%`;
+    flower.style.fontSize = `${Math.random() * 2 + 1}rem`;
+    flower.style.animationDuration = `${Math.random() * 5 + 3}s`;
+    
+    container.appendChild(flower);
 }
