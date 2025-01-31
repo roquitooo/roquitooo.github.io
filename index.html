@@ -4,12 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Melanie, ¿Queres ser mi San Valentín?</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        }
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 2;
+        }
+        h1 {
+            font-size: 3rem;
+            color: #d14a7a;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        @keyframes moveFlowers {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .flower {
+            position: absolute;
+            font-size: 2rem;
+            color: #ff7eb9;
+            animation: moveFlowers 5s infinite ease-in-out;
+            z-index: 1;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Melanie, ¿Queres ser mi San Valentín?</h1>
     </div>
-    <script src="script.js"></script>
+    <script>
+        const numFlowers = 20;
+        const container = document.body;
+        for (let i = 0; i < numFlowers; i++) {
+            const flower = document.createElement('div');
+            flower.innerHTML = '🌸';
+            flower.classList.add('flower');
+            flower.style.top = `${Math.random() * 100}%`;
+            flower.style.left = `${Math.random() * 100}%`;
+            flower.style.fontSize = `${Math.random() * 2 + 1}rem`;
+            flower.style.animationDuration = `${Math.random() * 5 + 3}s`;
+            container.appendChild(flower);
+        }
+    </script>
 </body>
 </html>
